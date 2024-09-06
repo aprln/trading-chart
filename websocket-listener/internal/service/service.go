@@ -54,7 +54,8 @@ func (s *service) aggregateOHLCCandlesticks(aggTrade model.AggTrade) (result mod
 	}
 
 	if s.curOHLC.Symbol != aggTrade.Symbol {
-		log.Fatal("bad")
+		// For debug only
+		log.Println("BAD: This should not happen")
 	}
 
 	if !aggTrade.TradeTime.Truncate(time.Minute).Equal(s.curOHLC.StartTime) {
